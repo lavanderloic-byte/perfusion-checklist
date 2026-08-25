@@ -20,8 +20,7 @@
 <body>
 <main>
   <h1>振动切片 Checklist</h1>
-  <div id="progress">0 / 12</div>
-
+  <div id="progress">0 / 11</div>
   <label class="item"><input type="checkbox"><span>502</span></label>
   <label class="item"><input type="checkbox"><span>灭菌胶条</span></label>
   <label class="item"><input type="checkbox"><span>刀片</span></label>
@@ -33,8 +32,6 @@
   <label class="item"><input type="checkbox"><span>记号笔</span></label>
   <label class="item"><input type="checkbox"><span>平头钝镊子</span></label>
   <label class="item"><input type="checkbox"><span>脑子</span></label>
-  <label class="item"><input type="checkbox"><span>振动切片机</span></label>
-
   <div id="complete">✓ 全部完成</div>
   <button id="reset" type="button">重新检查</button>
 </main>
@@ -43,8 +40,7 @@ const boxes=[...document.querySelectorAll('input[type=checkbox]')];
 const progress=document.getElementById('progress');
 const complete=document.getElementById('complete');
 function update(){let n=0;boxes.forEach(b=>{b.closest('.item').classList.toggle('done',b.checked);if(b.checked)n++});progress.textContent=`${n} / ${boxes.length}`;complete.style.display=n===boxes.length?'block':'none'}
-boxes.forEach(b=>b.addEventListener('change',update));
-document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update()});update();
+boxes.forEach(b=>b.addEventListener('change',update));document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update()});update();
 </script>
 </body>
 </html>
